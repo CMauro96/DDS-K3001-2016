@@ -30,8 +30,7 @@ public class Negocio
 	}
 	public void realizarVenta(Prenda unaPrenda,int cantidad){
     	Venta unaVenta= new Venta(unaPrenda,cantidad);
-    	float precioTotal= precioFinal(unaPrenda);
-    	unaVenta.setPrecioFinal(precioTotal);
+    	unaVenta.setPrecioFinal(precioFinal(unaPrenda));
     	registrarVenta(unaVenta);
     }
     public void registrarVenta(Venta unaVenta){
