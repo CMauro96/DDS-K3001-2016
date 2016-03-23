@@ -9,6 +9,7 @@ public class Prenda {
 		
 	}
 
+	
 	public boolean isImportada() {
 		return importada;
 	}
