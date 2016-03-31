@@ -1,6 +1,7 @@
 package Grupo4;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,18 +11,11 @@ public class Negocio
 {		
 	List <Venta> ventas=new ArrayList<>();
 	private float valorFijoNegocio;
+	
+	
     public float precioFinal(Prenda unaPrenda){
-    		float precioFinal= unaPrenda.getPrecioBase() + valorFijoNegocio;
-    		if(unaPrenda.isImportada())
-    		{
-    			return  (float) (precioFinal*(1.3));
-    		}
-    		else{
-    			return precioFinal;
-    		}
+    		return unaPrenda.getPrecioFinal(valorFijoNegocio);
     }
-    
-    
     public float getValorFijoNegocio() {
 		return valorFijoNegocio;
 	}
@@ -29,8 +23,9 @@ public class Negocio
 		this.valorFijoNegocio = valorFijoNegocio;
 	}
 	public void realizarVenta(Prenda unaPrenda,int cantidad){
-    	Venta unaVenta= new Venta(unaPrenda,cantidad);
-    	unaVenta.setPrecioFinal(precioFinal(unaPrenda));
+		String fecha= calcularFecha();
+    	Venta unaVenta= new Venta(unaPrenda,cantidad,fecha);
+    	unaVenta.setPrecioFinal(valorFijoNegocio);
     	registrarVenta(unaVenta);
     }
     public void registrarVenta(Venta unaVenta){
@@ -43,4 +38,11 @@ public class Negocio
     	ganancia=(float) ventasDelDia.stream().mapToDouble(unaVenta->(unaVenta.getPrecioFinal())*(unaVenta.getCantidad())).sum();
     	return ganancia;
     }
+    private String calcularFecha(){
+		Calendar c1 = Calendar.getInstance();
+		String dia = Integer.toString(c1.get(Calendar.DATE));
+		String mes = Integer.toString((c1.get(Calendar.MONTH)+1));
+		String anio = Integer.toString(c1.get(Calendar.YEAR));
+		return dia+"/"+mes+"/"+anio;
+	}
 }

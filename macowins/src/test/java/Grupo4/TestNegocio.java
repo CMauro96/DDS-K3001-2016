@@ -18,8 +18,8 @@ public class TestNegocio {
 public void init(){
 	saco=new Prenda(300);
 	saco.setImportada(true);
-	unaVenta= new Venta(saco,4);
-	unaVenta2= new Venta(saco,10);
+	unaVenta= new Venta(saco,4,calcularFecha());
+	unaVenta2= new Venta(saco,10,calcularFecha());
 	macowins= new Negocio();
 	macowins.setValorFijoNegocio(100);
 	unaVenta.setPrecioFinal(macowins.precioFinal(saco));

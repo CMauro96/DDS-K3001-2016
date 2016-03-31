@@ -22,6 +22,14 @@ public class Prenda {
 	public float getPrecioBase() {
 		return precioBase;
 	}
-	
-	
+	public float getPrecioFinal(float valorDeNegocio){
+		float precioFinal= this.getPrecioBase() + valorDeNegocio;
+		if(this.isImportada())
+		{
+			return  (float) (precioFinal*(1.3));
+		}
+		else{
+			return precioFinal;
+		}
+	}
 }
