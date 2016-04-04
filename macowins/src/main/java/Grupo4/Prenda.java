@@ -6,7 +6,6 @@ public class Prenda {
 
 	public Prenda(float precioBase) {
 		this.precioBase=precioBase;
-		
 	}
 
 	public boolean isImportada() {
@@ -15,14 +14,11 @@ public class Prenda {
 	public void setImportada(boolean importada) {
 		this.importada = importada;
 	}
-	public void setPrecioBase(float precioBase){
-		this.precioBase=precioBase;
-	}
 
 	public float getPrecioBase() {
 		return precioBase;
 	}
-	public float getPrecioFinal(float valorDeNegocio){
+	public float getPrecioFinalPrenda(float valorDeNegocio){
 		float precioFinal= this.getPrecioBase() + valorDeNegocio;
 		if(this.isImportada())
 		{

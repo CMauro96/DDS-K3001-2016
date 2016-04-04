@@ -14,7 +14,7 @@ public class Negocio
 	
 	
     public float precioFinal(Prenda unaPrenda){
-    		return unaPrenda.getPrecioFinal(valorFijoNegocio);
+    		return unaPrenda.getPrecioFinalPrenda(valorFijoNegocio);
     }
     public float getValorFijoNegocio() {
 		return valorFijoNegocio;
@@ -26,16 +26,16 @@ public class Negocio
 		String fecha= calcularFecha();
     	Venta unaVenta= new Venta(unaPrenda,cantidad,fecha);
     	unaVenta.setPrecioFinal(valorFijoNegocio);
-    	registrarVenta(unaVenta);
+    	this.registrarVenta(unaVenta);
     }
-    public void registrarVenta(Venta unaVenta){
+    private void registrarVenta(Venta unaVenta){
     	ventas.add(unaVenta);
     }
     public float gananciasDelDia(String fecha){ //Formato Fecha dd/m/aaaa
     	List <Venta> ventasDelDia=new ArrayList<>();
     	float ganancia;
     	ventasDelDia=ventas.stream().filter(unaVenta->unaVenta.getFecha().equals(fecha)).collect(Collectors.toList());
-    	ganancia=(float) ventasDelDia.stream().mapToDouble(unaVenta->(unaVenta.getPrecioFinal())*(unaVenta.getCantidad())).sum();
+    	ganancia=(float) ventasDelDia.stream().mapToDouble(unaVenta->(unaVenta.getPrecioFinal())).sum();
     	return ganancia;
     }
     private String calcularFecha(){

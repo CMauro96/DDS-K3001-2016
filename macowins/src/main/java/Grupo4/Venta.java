@@ -32,7 +32,7 @@ public class Venta {
 		this.fecha = fecha;
 	}
 	public void setPrecioFinal(float valorNegocio) {
-		this.precioFinal=cantidad*(p1.getPrecioFinal(valorNegocio));
+		this.precioFinal=cantidad*(p1.getPrecioFinalPrenda(valorNegocio));
 	}
 	public float getPrecioFinal() {
 		return precioFinal;
