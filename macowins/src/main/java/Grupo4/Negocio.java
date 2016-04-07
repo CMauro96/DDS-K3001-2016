@@ -10,22 +10,14 @@ import java.util.stream.Collectors;
 public class Negocio 
 {		
 	List <Venta> ventas=new ArrayList<>();
-	private float valorFijoNegocio;
 	
 	
     public float precioFinal(Prenda unaPrenda){
-    		return unaPrenda.getPrecioFinalPrenda(valorFijoNegocio);
+    		return unaPrenda.getPrecioFinalPrenda();
     }
-    public float getValorFijoNegocio() {
-		return valorFijoNegocio;
-	}
-	public void setValorFijoNegocio(float valorFijoNegocio) {
-		this.valorFijoNegocio = valorFijoNegocio;
-	}
 	public void realizarVenta(Prenda unaPrenda,int cantidad){
 		String fecha= calcularFecha();
     	Venta unaVenta= new Venta(unaPrenda,cantidad,fecha);
-    	unaVenta.setPrecioFinal(valorFijoNegocio);
     	this.registrarVenta(unaVenta);
     }
     private void registrarVenta(Venta unaVenta){

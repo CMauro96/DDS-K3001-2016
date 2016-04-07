@@ -3,9 +3,12 @@ package Grupo4;
 public class Prenda {
 	private boolean importada;
 	public float precioBase;
+	public Tipo prenda;
+	public static float valorFijoNegocio=100;
+	 
 
-	public Prenda(float precioBase) {
-		this.precioBase=precioBase;
+	public Prenda(Tipo tipoPrenda) {
+		this.prenda=tipoPrenda;
 	}
 
 	public boolean isImportada() {
@@ -18,14 +21,16 @@ public class Prenda {
 	public float getPrecioBase() {
 		return precioBase;
 	}
-	public float getPrecioFinalPrenda(float valorDeNegocio){
-		float precioFinal= this.getPrecioBase() + valorDeNegocio;
+	private float TasaDeImportacion(){
 		if(this.isImportada())
 		{
-			return  (float) (precioFinal*(1.3));
+			return  (float) 1.3;
 		}
 		else{
-			return precioFinal;
+			return 1;
 		}
+	}
+	public float getPrecioFinalPrenda(){
+		return (this.prenda.precioBase() + valorFijoNegocio)*this.TasaDeImportacion();
 	}
 }

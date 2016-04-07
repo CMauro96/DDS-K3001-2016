@@ -7,10 +7,10 @@ public class Venta {
 	private float precioFinal;
 
 	public Venta(Prenda p1, int cantidad, String fecha) {
-		super();
 		this.p1 = p1;
 		this.cantidad = cantidad;
 		this.fecha = fecha;
+		setPrecioFinal();
 	}
 	public Prenda getP1() {
 		return p1;
@@ -31,8 +31,8 @@ public class Venta {
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	public void setPrecioFinal(float valorNegocio) {
-		this.precioFinal=cantidad*(p1.getPrecioFinalPrenda(valorNegocio));
+	public void setPrecioFinal() {
+		this.precioFinal=cantidad*(p1.getPrecioFinalPrenda());
 	}
 	public float getPrecioFinal() {
 		return precioFinal;
