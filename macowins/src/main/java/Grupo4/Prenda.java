@@ -2,13 +2,16 @@ package Grupo4;
 
 public class Prenda {
 	private boolean importada;
-	public float precioBase;
-	public Tipo prenda;
-	public static float valorFijoNegocio=100;
+	public double precioBase;
+	public Tipo tipoPrenda;
+	public Marca marcaPrenda;
+	public static double valorFijoNegocio=100;
+	
 	 
 
-	public Prenda(Tipo tipoPrenda) {
-		this.prenda=tipoPrenda;
+	public Prenda(Tipo tipoPrenda,Marca marcaPrenda) {
+		this.tipoPrenda=tipoPrenda;
+		this.marcaPrenda=marcaPrenda;
 	}
 
 	public boolean isImportada() {
@@ -18,19 +21,22 @@ public class Prenda {
 		this.importada = importada;
 	}
 
-	public float getPrecioBase() {
+	public double getPrecioBase() {
 		return precioBase;
 	}
-	private float TasaDeImportacion(){
+	private double TasaDeImportacion(){
 		if(this.isImportada())
 		{
-			return  (float) 1.3;
+			return 1.3;
 		}
 		else{
 			return 1;
 		}
 	}
-	public float getPrecioFinalPrenda(){
-		return (this.prenda.precioBase() + valorFijoNegocio)*this.TasaDeImportacion();
+	public double precioOriginal(){
+		return (this.tipoPrenda.precioBase() + valorFijoNegocio)*this.TasaDeImportacion();
+	}
+	public double getPrecioFinalPrenda(){
+		return marcaPrenda.coeficienteMarca(precioOriginal());
 	}
 }
