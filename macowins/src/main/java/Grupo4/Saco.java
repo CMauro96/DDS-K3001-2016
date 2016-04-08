@@ -6,7 +6,7 @@ public class Saco implements Tipo {
 		this.cantBotones=cantBotones;
 	}
 	
-	public float precioBase(){
+	public double precioBase(){
 		return 300+(10*cantBotones);
 	}
 }
