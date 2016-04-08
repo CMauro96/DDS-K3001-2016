@@ -12,7 +12,7 @@ public class TestNegocio {
 	private Negocio macowins;
 @Before
 public void init(){
-	saco=new Prenda(new Saco(3),new Sarkany());
+	saco=new Prenda(new Saco(3));
 	saco.setImportada(true);
 	macowins= new Negocio();
 	macowins.realizarVenta(saco, 10);
@@ -24,7 +24,7 @@ public void init(){
 	}
 @Test
 	public void pruebaGanancia(){
-	Assert.assertEquals(10565, macowins.gananciasDelDia(calcularFecha()), 0.2);
+	Assert.assertEquals(7826, macowins.gananciasDelDia(calcularFecha()), 0);
 }
 private String calcularFecha(){
 	Calendar c1 = Calendar.getInstance();
@@ -34,6 +34,6 @@ private String calcularFecha(){
 	return dia+"/"+mes+"/"+anio;
 	
 }
-
+	
 	
 }
