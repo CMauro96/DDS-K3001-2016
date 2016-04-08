@@ -1,14 +1,14 @@
 package Grupo4;
 
 public class Sombrero implements Tipo {
-	private double coefMetro;
+	private float coefMetro;
 
 	
-	public Sombrero(double coefMetro) {
+	public Sombrero(float coefMetro) {
 		this.coefMetro = coefMetro;
 	}
 
-	public double precioBase(){
+	public float precioBase(){
 		return 150+(1+coefMetro);
 	}
 }

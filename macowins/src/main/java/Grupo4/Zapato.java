@@ -7,7 +7,7 @@ public class Zapato implements Tipo{
 		this.talle = talle;
 	}
 
-	public double precioBase(){
+	public float precioBase(){
 		return 400+(5*talle);
 	}
 }
