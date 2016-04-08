@@ -1,12 +1,12 @@
 package Grupo4;
 
 public class Pantalon implements Tipo {
-	private float cantTela;
+	private double cantTela;
 	
-	public Pantalon(float cantTela) {
+	public Pantalon(double cantTela) {
 		this.cantTela = cantTela;
 	}
-	public float precioBase(){
+	public double precioBase(){
 		return 250+cantTela;
 	}
 }
